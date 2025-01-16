@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragrance Store</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #ff6b6b;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ff5252;
+        }
+
+        /* Gallery Styles */
+        .gallery-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .perfume-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .perfume-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .perfume-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .perfume-info {
+            padding: 1.5rem;
+        }
+
+        .price {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .submit-button {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #ff5252;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Fragrance Store</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active" onclick="showPage('home')">Home</a></li>
+            <li><a href="#about" onclick="showPage('about')">About</a></li>
+            <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
+            <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+            <li><a href="#register" onclick="showPage('register')">Register</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <main class="hero">
+            <h1>Welcome to Fragrance Store</h1>
+            <p>Discover the Perfect Scent for Every Moment</p>
+            <a href="#gallery" class="cta-button" onclick="showPage('gallery')">Explore Collection</a>
+        </main>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <div class="gallery-section">
+            <h1>About Us</h1>
+            <p>Welcome to Fragrance Store, your premier destination for luxury fragrances and perfumes. 
+               Established in 2024, we've been dedicated to bringing you the finest scents from around the world.</p>
+            <div class="about-content">
+                <h3>Our Expertise</h3>
+                <ul>
+                    <li>Luxury Perfumes</li>
+                    <li>Natural Essences</li>
+                    <li>Custom Fragrances</li>
+                    <li>Professional Consultation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Page -->
+    <section id="gallery" class="page-section">
+        <div class="gallery-section">
+            <h1>Our Collection</h1>
+            <div class="gallery-grid">
+                <!-- Perfume 1 -->
+                <div class="perfume-card">
+                    <img class="perfume-image" src="https://images.unsplash.com/photo-1541643600914-78b084683601" alt="Luxury Perfume">
+                    <div class="perfume-info">
+                        <h3>Midnight Rose</h3>
+                        <p>An enchanting blend of rose and vanilla</p>
+                        <p class="price">$129.99</p>
+                        <a href="#" class="cta-button">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Perfume 2 -->
+                <div class="perfume-card">
+                    <img class="perfume-image" src="https://images.unsplash.com/photo-1587017539504-67cfbddac569" alt="Natural Essence">
+                    <div class="perfume-info">
+                        <h3>Ocean Breeze</h3>
+                        <p>Fresh aquatic scent with citrus notes</p>
+                        <p class="price">$89.99</p>
+                        <a href="#" class="cta-button">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Perfume 3 -->
+                <div class="perfume-card">
+                    <img class="perfume-image" src="https://images.unsplash.com/photo-1595425964272-5437c8a18827" alt="Classic Perfume">
+                    <div class="perfume-info">
+                        <h3>Golden Amber</h3>
+                        <p>Warm and sophisticated amber fragrance</p>
+                        <p class="price">$149.99</p>
+                        <a href="#" class="cta-button">Add to Cart</a>
+                    </div>
+                </div>
+
+                <!-- Perfume 4 -->
+                <div class="perfume-card">
+                    <img class="perfume-image" src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539" alt="Luxury Collection">
+                    <div class="perfume-info">
+                        <h3>Royal Oud</h3>
+                        <p>Exotic blend of oud and spices</p>
+                        <p class="price">$199.99</p>
+                        <a href="#" class="cta-button">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="gallery-section">
+            <h1>Contact Us</h1>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Page -->
+    <section id="register" class="page-section">
+        <div class="gallery-section">
+            <h1>Register</h1>
+            <div class="contact-form">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="regName">Full Name:</label>
+                        <input type="text" id="regName" name="regName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email:</label>
+                        <input type="email" id="regEmail" name="regEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password:</label>
+                        <input type="password" id="regPassword" name="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password:</label>
+                        <input type="password" id="regConfirmPassword" name="regConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="submit-button">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fragrance Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to show selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === '#' + pageId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Form submission handlers
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(this.regPassword.value !== this.regConfirmPassword.value) {
+                alert('Passwords do not match!');
+                return;
+            }
+            alert('Registration successful!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
